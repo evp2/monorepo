@@ -1,18 +1,24 @@
-<script module>
-	// This is sample data.
+<script>
+	import * as Collapsible from "$lib/components/ui/collapsible/index.js";
+	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
+	import FileIcon from "@lucide/svelte/icons/file";
+	import FolderIcon from "@lucide/svelte/icons/folder";
+	let { ref = $bindable(null), ...restProps } = $props();
+
 	const data = {
 		changes: [
 			{
-				file: "README.md",
-				state: "M",
+				file: "Home",
+				state: "...",
 			},
 			{
-				file: "routes/+page.svelte",
-				state: "U",
+				file: "Contact",
+				state: "...",
 			},
 			{
-				file: "routes/+layout.svelte",
-				state: "M",
+				file: "Admin",
+				state: "...",
 			},
 		],
 		tree: [
@@ -35,24 +41,20 @@
 	};
 </script>
 
-<script>
-	import * as Collapsible from "$lib/components/ui/collapsible/index.js";
-	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
-	import FileIcon from "@lucide/svelte/icons/file";
-	import FolderIcon from "@lucide/svelte/icons/folder";
-	let { ref = $bindable(null), ...restProps } = $props();
-</script>
 
-<Sidebar.Root bind:ref {...restProps}>
+<Sidebar.Root {...restProps}>
 	<Sidebar.Content>
 		<Sidebar.Group>
-			<Sidebar.GroupLabel>Changes</Sidebar.GroupLabel>
+			<Sidebar.GroupLabel>Gallery</Sidebar.GroupLabel>
 			<Sidebar.GroupContent>
 				<Sidebar.Menu>
 					{#each data.changes as item, index (index)}
 						<Sidebar.MenuItem>
-							<Sidebar.MenuButton>
+							<Sidebar.MenuButton
+								isActive={item.file === ref}
+								class="data-[active=true]:bg-transparent data-[active=true]:font-bold"
+								onclick={() => ref = item.file}
+							>
 								<FileIcon />
 								{item.file}
 							</Sidebar.MenuButton>
@@ -63,12 +65,11 @@
 			</Sidebar.GroupContent>
 		</Sidebar.Group>
 		<Sidebar.Group>
-			<Sidebar.GroupLabel>Files</Sidebar.GroupLabel>
 			<Sidebar.GroupContent>
 				<Sidebar.Menu>
-					{#each data.tree as item, index (index)}
-						{@render Tree({ item })}
-					{/each}
+					<!--{#each data.tree as item, index (index)}-->
+					<!--	{@render Tree({ item })}-->
+					<!--{/each}-->
 				</Sidebar.Menu>
 			</Sidebar.GroupContent>
 		</Sidebar.Group>
@@ -76,13 +77,13 @@
 	<Sidebar.Rail />
 </Sidebar.Root>
 
-<!-- eslint-disable-next-line @typescript-eslint/no-explicit-any -->
 {#snippet Tree({ item })}
 	{@const [name, ...items] = Array.isArray(item) ? item : [item]}
 	{#if !items.length}
 		<Sidebar.MenuButton
-			isActive={name === "button.svelte"}
-			class="data-[active=true]:bg-transparent"
+			isActive={name === ref}
+			class="data-[active=true]:bg-transparent data-[active=true]:font-bold"
+			onclick={() => ref = name}
 		>
 			<FileIcon />
 			{name}
