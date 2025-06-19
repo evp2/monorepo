@@ -3,42 +3,44 @@
 	import * as Breadcrumb from "$lib/components/ui/breadcrumb/index.js";
 	import { Separator } from "$lib/components/ui/separator/index.js";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import { Button } from "$lib/components/ui/button/index.js";
 
-	let selected = $state("README.md");
+	let selected = $state("Home");
 
-	$effect(() => {
-		console.log("Selected file:", selected);
-	});
+	function handleContact() {
+		window.location.href = "mailto:your.email@example.com";
+	}
 </script>
 
 <Sidebar.Provider>
 	<AppSidebar bind:ref={selected}/>
 	<Sidebar.Inset>
-		<header class="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+		<header class="flex h-16 shrink-0 items-center gap-2 border-b px-4 bg-white/80 backdrop-blur-md shadow-sm">
 			<Sidebar.Trigger class="-ml-1" />
 			<Separator orientation="vertical" class="mr-2 data-[orientation=vertical]:h-4" />
 			<Breadcrumb.Root>
 				<Breadcrumb.List>
 					<Breadcrumb.Item class="hidden md:block">
-						<Breadcrumb.Link href="#">Gallery</Breadcrumb.Link>
+							<Breadcrumb.Link href="#">{selected}
+							</Breadcrumb.Link>
 					</Breadcrumb.Item>
-					{#if selected}
-						<Breadcrumb.Separator class="hidden md:block" />
-						<Breadcrumb.Item class="hidden md:block">
-							<Breadcrumb.Link href="#">{selected}</Breadcrumb.Link>
-						</Breadcrumb.Item>
-					{/if}
+		
+
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
 		</header>
-		<div class="flex flex-1 flex-col gap-4 p-4">
-			<div class="grid auto-rows-min gap-4 md:grid-cols-3">
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-			</div>
-			<div class="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min"></div>
-		</div>
+		<main class="flex flex-1 flex-col items-center justify-center p-8 bg-gradient-to-br from-gray-50 to-blue-100 min-h-[80vh]">
+			<section class="max-w-2xl w-full text-center py-16 px-6 rounded-2xl shadow-lg bg-white/90 border border-gray-200">
+				<h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Evan</h1>
+				<h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Freelance Software Engineer</h2>
+				<p class="text-gray-700 mb-8 text-lg md:text-xl">
+					I help startups and businesses build robust, scalable web applications. With expertise in modern JavaScript frameworks, enterprise cloud architecture, and UI/UX, I turn ideas into handcrafted products.
+				</p>
+				<Button class="px-8 py-3 text-lg font-semibold rounded-full shadow-md bg-black hover:bg-gray-800 text-white transition-colors" on:click={handleContact}>
+					Contact Me
+				</Button>
+			</section>
+		</main>
 	</Sidebar.Inset>
 </Sidebar.Provider>
 

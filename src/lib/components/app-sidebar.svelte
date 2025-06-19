@@ -4,7 +4,7 @@
 	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
 	import FileIcon from "@lucide/svelte/icons/file";
 	import FolderIcon from "@lucide/svelte/icons/folder";
-	let { ref = $bindable(null), ...restProps } = $props();
+	let { ref = $bindable("Home"), ...restProps } = $props();
 
 	const data = {
 		changes: [
@@ -13,11 +13,11 @@
 				state: "...",
 			},
 			{
-				file: "Contact",
+				file: "About",
 				state: "...",
 			},
 			{
-				file: "Admin",
+				file: "Preferences",
 				state: "...",
 			},
 		],
@@ -45,7 +45,7 @@
 <Sidebar.Root {...restProps}>
 	<Sidebar.Content>
 		<Sidebar.Group>
-			<Sidebar.GroupLabel>Gallery</Sidebar.GroupLabel>
+			<Sidebar.GroupLabel>Greetings</Sidebar.GroupLabel>
 			<Sidebar.GroupContent>
 				<Sidebar.Menu>
 					{#each data.changes as item, index (index)}
