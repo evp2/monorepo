@@ -21,7 +21,8 @@
 			<Breadcrumb.Root>
 				<Breadcrumb.List>
 					<Breadcrumb.Item class="hidden md:block">
-							<Breadcrumb.Link href="#">{selected}
+							<Breadcrumb.Link href="#">
+								{selected}
 							</Breadcrumb.Link>
 					</Breadcrumb.Item>
 		
@@ -34,7 +35,7 @@
 				<h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Evan</h1>
 				<h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Freelance Software Engineer</h2>
 				<p class="text-gray-700 mb-8 text-lg md:text-xl">
-					I help startups and businesses build robust, scalable web applications. With expertise in modern JavaScript frameworks, enterprise cloud architecture, and UI/UX, I turn ideas into handcrafted products.
+					I help startups and businesses build robust, scalable web applications. With expertise in mobile, web, and cloud technologies, I turn ideas into well crafted products.
 				</p>
 				<Button class="px-8 py-3 text-lg font-semibold rounded-full shadow-md bg-black hover:bg-gray-800 text-white transition-colors" on:click={handleContact}>
 					Contact Me
