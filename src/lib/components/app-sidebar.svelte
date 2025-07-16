@@ -17,7 +17,7 @@
 				state: "...",
 			},
 			{
-				file: "Preferences",
+				file: "Contact",
 				state: "...",
 			},
 		],
@@ -45,7 +45,7 @@
 <Sidebar.Root {...restProps}>
 	<Sidebar.Content>
 		<Sidebar.Group>
-			<Sidebar.GroupLabel>Greetings</Sidebar.GroupLabel>
+			<Sidebar.GroupLabel>{ref}</Sidebar.GroupLabel>
 			<Sidebar.GroupContent>
 				<Sidebar.Menu>
 					{#each data.changes as item, index (index)}
