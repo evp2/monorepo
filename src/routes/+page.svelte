@@ -35,7 +35,7 @@
 				<h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Evan</h1>
 				<h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Freelance Software Engineer</h2>
 				<p class="text-gray-700 mb-8 text-lg md:text-xl">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatibus beatae ducimus totam molestiae magni temporibus expedita, commodi omnis, voluptate maiores, exercitationem cum repellat vero nisi sint ratione alias voluptatem.
+					Full Stack Web and Cloud
 				</p>
 				<Button class="px-8 py-3 text-lg font-semibold rounded-full shadow-md bg-black hover:bg-gray-800 text-white transition-colors" on:click={handleContact}>
 					Contact Me
