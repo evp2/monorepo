@@ -24,7 +24,7 @@
 							<Breadcrumb.Link href="#">
 								{selected}
 							</Breadcrumb.Link>
-					</Breadcrumb.Item
+					</Breadcrumb.Item>
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
 		</header>
