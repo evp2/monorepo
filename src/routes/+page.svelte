@@ -8,7 +8,7 @@
 	let selected = $state("Home");
 
 	function handleContact() {
-		window.location.href = "mailto:your.email@example.com";
+		window.location.href = "https://github.com/evp2/monorepo";
 	}
 </script>
 
@@ -24,9 +24,7 @@
 							<Breadcrumb.Link href="#">
 								{selected}
 							</Breadcrumb.Link>
-					</Breadcrumb.Item>
-		
-
+					</Breadcrumb.Item
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
 		</header>
@@ -35,7 +33,7 @@
 				<h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Evan</h1>
 				<h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Freelance Software Engineer</h2>
 				<p class="text-gray-700 mb-8 text-lg md:text-xl">
-					Full Stack Web and Cloud
+					Full Stack Web, AWS, SRE and Cybersecurity Specialist.
 				</p>
 				<Button class="px-8 py-3 text-lg font-semibold rounded-full shadow-md bg-black hover:bg-gray-800 text-white transition-colors" on:click={handleContact}>
 					Contact Me
